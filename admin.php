@@ -9,24 +9,25 @@
 	<div id="box">
 		<div class="box-top">Showbiz News</div>
 		<div class="box-panel">
-			<?php
+			<?php 
 			include("config.php");
 			$sql =" SELECT * FROM movies Order by id desc ";
 			$result1 = mysql_query($sql);
+			/*
 			$image = array ();
 				
 			while($row = mysql_fetch_array($result1))
 			{		
 				array_push($image,$row[5]);		
-			}				 
+			}	*/			 
 			?>
-			<img margin-left=auto height="213" width="500" src="uploads/<?php echo  $image[0] ?>.jpg " name="slideshow" /> 
+			<!--<img margin-left=auto height="213" width="500" src="uploads/<?php echo  $image[0] ?>.jpg " name="slideshow" /> 
 			<table>
 				<tr>
 					<td align="left"><a href="javascript:change_image(-1) ">Previous</a></td>
 					<td align="right"><a href="javascript:change_image(1)">Next</a></td>		
 				</tr>
-			</table>
+			</table> -->
 		</div>				
 	</div>
 
@@ -35,10 +36,7 @@
 		<div class="box-panel">
 			<?php	
 
-			include("testpaging.php");
-			echo "</br>";
-			echo $pagination 				
-			/*$uploadmessage = "return confirm('Data will be updated');";
+			$uploadmessage = "return confirm('Data will be updated');";
 			$deletemessage = "return confirm('Are u sure to delete');";
 			$result = mysql_query($sql);			
 			while($row = mysql_fetch_array($result))
@@ -49,7 +47,7 @@
 				echo '<a href="updateform.php?id='.$idrow.'" ><input class="update_button" type="button" value="Update" onclick="'.$uploadmessage.'" /></a>';
 				echo '<a href="delete.php?id='.$idrow.'"><input class="delete_button" type="button" value="Delete" onclick="'.$deletemessage.'"/></a></div>';
 			}
-			mysql_close($conn);  */ 
+			mysql_close($conn);  
 			?>
 		</div>				
 	</div>

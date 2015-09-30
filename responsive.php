@@ -31,10 +31,26 @@ session_start();
 	<div id="container">
 		<div class="sidebar">
 			<ul id="nav">
-				<li><a href="responsive.php?page=home" class="selected">Home</a></li>
-				<li><a href="responsive.php?page=form">Add</a></li>
-				<li><a href="responsive.php?page=login">Login</a></li>
-				<li><a href="responsive.php?page=location">Nearby Theatres</a></li>
+				
+				<?php	
+				if($_SESSION["fname"]) {
+					echo '<li><a href="responsive.php?page=home" class="selected">Home</a></li>	';
+					echo '<li><a href="responsive.php?page=login" style="display:none">Login</a></li>';
+					echo '<li><a href="responsive.php?page=admin" >Admin</a></li>';
+				    echo '<li><a href="responsive.php?page=form" >Add</a></li>';
+				    echo '<li><a href="responsive.php?page=location">Nearby Theatres</a></li>';
+					echo '<li><a href="responsive.php?page=subscribe">Subscribe</a></li>';
+				}	
+				else
+				{
+					echo '<li><a href="responsive.php?page=home" class="selected">Home</a></li>	';
+					echo '<li><a href="responsive.php?page=login">Login</a></li>';
+					echo '<li><a href="responsive.php?page=location">Nearby Theatres</a></li>';
+					echo '<li><a href="responsive.php?page=subscribe">Subscribe</a></li>';
+
+				}
+				?>							
+				
 			</ul>			
 		</div>
 		<div class="content">
@@ -50,6 +66,11 @@ session_start();
 				}
 			?>			
 		</div>
+	</div>
+
+	<div id="footer">
+	<h6>Copyright &copy; sjinnovation.com &amp; designed by CK &#153;</h6>
+		
 	</div>
 
 </body>

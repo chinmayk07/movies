@@ -1,47 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Paging test</title>
-</head>
-<body>
-<?php  
-$offset = $_GET["offset"];
-?>
-	<form method="post" action="" name="form1" id="form1"> 
-	<input type="hidden" value="<?php echo $offset; ?>" id="offset" name="offset">
-		<select id="selectbox" name="noofitem" onchange="changeFunction(this.value,form1.offset.value)">
-			<option value="0">0</option>
-			<option value="5">5</option>
-			<option value="10">10</option>
-			<option value="15">15</option>
-			<option value="20">20</option>
-		</select><br><br>
-	</form>
-	<script>
-	function changeFunction(page3,offset){		
-		window.location="testpaging.php?page="+page3+ "&offset="+offset; 
-	}
-	</script>
+<?php
+include("config.php");
+$count_query = mysql_query("SELECT NULL FROM movies");
+$count = mysql_num_rows($count_query);
 
-	<?php
-	$offset;
-	include("config.php");
-	$page = $_GET["page"];
-	$offset =$_GET["offset"];
-	$result1 = mysql_query("select * from movies");
-	$count = mysql_num_rows($result1);
-	$i1=0;
-	for($i=1;$i<$count;$i=$i+$page)
-		{
-			$i1++;
-		
-		?><a href="testpaging.php?page=<?php echo $page; ?>&offset=<?php echo $offset+$page; ?>" style="text-decoration:none"><?php echo $i1." "; ?></a><?php 
+if(isset($_GET['page'])) {
+	$page = preg_replace("#[^0-9]#","",$_GET['page']);
+}
+else
+{
+	$page =1;
+}
+
+if(isset($_GET['perpage'])) {
+	$perPage = preg_replace("#[^0-9]#","",$_GET['perpage']);
+}
+else
+{
+	$perPage = 5;
+}
+
+$lastPage = ceil($count/$perPage);
+
+if($page < 1) {
+	$page =  $lastPage ;
+}elseif ($page > $lastPage) {
+	$page = 1;
+}
+
+$limit = ($page-1)*$perPage.",$perPage";
+
+$query = mysql_query("SELECT * FROM movies ORDER BY id DESC LIMIT $limit");
+
+if($lastPage !=1) {
+
+	if($page != 1) {
+		$prev = $page -1;
+		$pagination .='<a href="home.php?page='.$prev.'&perpage='.$perPage.'">Previous</a>';	
+	}
+
+	if($page != $lastPage) {
+		$next = $page +1;
+		$pagination .='<a href="home.php?page='.$next.'&perpage='.$perPage.'">Next</a>';
 	}	
-	$result = mysql_query("SELECT * from movies LIMIT ".$page." OFFSET ".$offset);
-	while($row = mysql_fetch_array($result)){
+}
 
-		echo $row[id] ."". '<img height="213" width="213" src="uploads/'.$row["image"].'.jpg "/> ' ;
-	}
-	?>
-</body>
-</html>
+while($row = mysql_fetch_array($query)){
+
+	$idrow = $row[0]; 
+
+	echo '<img height="213" width="207" src="uploads/'.$row[5].'.jpg "/>';
+	
+}
+
+?>
