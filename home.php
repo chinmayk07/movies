@@ -20,8 +20,8 @@
 				array_push($image,$row[5]);		
 			}				 
 			?>
-			<img margin-left=auto height="213" width="500" src="uploads/<?php echo  $image[0] ?>.jpg " name="slideshow" /> 
-			<table>
+			<img height="213" width="75%" src="uploads/<?php echo  $image[0] ?>.jpg " name="slideshow" /> 
+			<table align="center">
 				<tr>
 					<td align="left"><a href="javascript:change_image(-1) ">Previous</a></td>
 					<td align="right"><a href="javascript:change_image(1)">Next</a></td>		

@@ -124,6 +124,7 @@ div#box .box-panel {
 	padding : 15px;
 	background-color: #fff;
 	height: auto;
+	text-align: center;
 }
 
 .show-image {
@@ -185,6 +186,16 @@ a.mobile {
 
 a.mobile:active {
 	background-color: #4a4a4a;
+}
+
+#bulkuploadcontainer {
+	background: #CCC;
+	margin: 100px auto;
+	width: 945px;
+}
+
+#addform {
+	vertical-align: center;
 }
 
 @media only screen and (max-width: 320px) {

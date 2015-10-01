@@ -3,39 +3,17 @@
 	<title>Home</title>	
 </head>
 <body>
-	<h1>LATEST RELEASE</h1>
-	<p>The new movies are shown first</p>
+	<h1>ADMIN Panel</h1>
+	<p>All changes can be done nly by Admin</p>
 
-	<div id="box">
-		<div class="box-top">Showbiz News</div>
-		<div class="box-panel">
-			<?php 
-			include("config.php");
-			$sql =" SELECT * FROM movies Order by id desc ";
-			$result1 = mysql_query($sql);
-			/*
-			$image = array ();
-				
-			while($row = mysql_fetch_array($result1))
-			{		
-				array_push($image,$row[5]);		
-			}	*/			 
-			?>
-			<!--<img margin-left=auto height="213" width="500" src="uploads/<?php echo  $image[0] ?>.jpg " name="slideshow" /> 
-			<table>
-				<tr>
-					<td align="left"><a href="javascript:change_image(-1) ">Previous</a></td>
-					<td align="right"><a href="javascript:change_image(1)">Next</a></td>		
-				</tr>
-			</table> -->
-		</div>				
-	</div>
+	
 
 	<div id="box">
 		<div class="box-top">Pagination</div>
 		<div class="box-panel">
-			<?php	
-
+			<?php
+			include("config.php");
+			$sql =" SELECT * FROM movies Order by id desc ";
 			$uploadmessage = "return confirm('Data will be updated');";
 			$deletemessage = "return confirm('Are u sure to delete');";
 			$result = mysql_query($sql);			
