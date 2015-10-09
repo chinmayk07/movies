@@ -35,12 +35,12 @@ if($lastPage !=1) {
 
 	if($page != 1) {
 		$prev = $page -1;
-		$pagination .='<a href="home.php?page='.$prev.'&perpage='.$perPage.'">Previous</a>';	
+		$pagination .='<a href="'.$HOME.'&page='.$prev.'&perpage='.$perPage.'">Previous</a>';	
 	}
 
 	if($page != $lastPage) {
 		$next = $page +1;
-		$pagination .='<a href="home.php?page='.$next.'&perpage='.$perPage.'">Next</a>';
+		$pagination .='<a href="'.$HOME.'?page='.$next.'&perpage='.$perPage.'">Next</a>';
 	}	
 }
 
@@ -48,7 +48,7 @@ while($row = mysql_fetch_array($query)){
 
 	$idrow = $row[0]; 
 
-	echo '<img height="213" width="207" src="uploads/'.$row[5].'.jpg "/>';
+	echo '<a href="'.$MOVIEDETAILS.'&id='.$row[5] .'"><img height="213" width="207" src="uploads/'.$row[5].'.jpg "/></a>';
 	
 }
 

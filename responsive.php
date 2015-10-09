@@ -11,7 +11,7 @@ session_start();
 </head>
 <body> 
 	<div id="header">
-		<div class="logo"><a href="responsive.php?page=home">Cine<span>Matine</span></a></div>
+		<div class="logo"><a href="<?php echo $HOME; ?>">Cine<span>Matine</span></a></div>
 		<div class="top_info">
 			<?php
 				if($_SESSION["fname"]) {
@@ -34,24 +34,24 @@ session_start();
 				
 				<?php	
 				if($_SESSION["fname"]) {
-					echo '<li><a href="responsive.php?page=home" class="selected">Home</a></li>	';
-					echo '<li><a href="responsive.php?page=login" style="display:none">Login</a></li>';
-					echo '<li><a href="responsive.php?page=admin" >Admin</a></li>';
-				    echo '<li><a href="responsive.php?page=form" >Add</a></li>';
-				    echo '<li><a href="responsive.php?page=location">Nearby Theatres</a></li>';
-					echo '<li><a href="responsive.php?page=subscribe">Subscribe</a></li>';
+					echo '<li><a href="'. $HOME.'" class="selected">Home</a></li>	';
+					echo '<li><a href="'. $LOGIN.'" style="display:none">Login</a></li>';
+					echo '<li><a href="'.$ADMIN.'" >Admin</a></li>';
+				    echo '<li><a href="'.$ADDMOVIES.'" >Add</a></li>';
+				    echo '<li><a href="'.$THEATRE.'">Nearby Theatres</a></li>';
+					echo '<li><a href="'.$SUBSCRIBE.'">Subscribe</a></li>';
 				}	
 				else
 				{
-					echo '<li><a href="responsive.php?page=home" class="selected">Home</a></li>	';
-					echo '<li><a href="responsive.php?page=login">Login</a></li>';
-					echo '<li><a href="responsive.php?page=location">Nearby Theatres</a></li>';
-					echo '<li><a href="responsive.php?page=subscribe">Subscribe</a></li>';
+					echo '<li><a href="'. $HOME.'" class="selected">Home</a></li>	';
+					echo '<li><a href="'. $LOGIN.'">Login</a></li>';
+					echo '<li><a href="'.$THEATRE.'">Nearby Theatres</a></li>';
+					echo '<li><a href="'.$SUBSCRIBE.'">Subscribe</a></li>';
 
 				}
 				?>							
 				
-			</ul>			
+			</ul>		
 		</div>
 		<div class="content">
 			<?php

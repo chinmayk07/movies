@@ -1,6 +1,9 @@
 <?php
 
 include("config.php");
+require("../master/sendgrid-php/sendgrid-php.php");
+$sendgrid = new SendGrid('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');
+
 
 $Firstname = $_POST['firstname'];
 $Lastname = $_POST['lastname'];
@@ -8,7 +11,7 @@ $Gender = $_POST['gender'];
 $DOB = $_POST['dateofbirth'];
 $Country = $_POST['country'];
 $Postal = $_POST['zip'];
-$Email = $_POST['mail'];
+$Email1 = $_POST['mail'];
 $Pass = $_POST['password'];
 $Cpass = $_POST['cpassword'];
 
@@ -18,17 +21,29 @@ if (isset($_POST['signup_btn']))
 {
 	if($Pass === $Cpass){	
 		
-		$insert = "INSERT INTO user (fname,lname,gender,dob,country,zipcode,email,password) VALUES ('$Firstname','$Lastname','$Gender','$DOB','$Country','$Postal','$Email','$Pass')";
+		$insert = "INSERT INTO user (fname,lname,gender,dob,country,zipcode,email,password) VALUES ('$Firstname','$Lastname','$Gender','$DOB','$Country','$Postal','$Email1','$Pass')";
 
 		$data = mysql_query ($insert)or die(mysql_error());
-		if($data) { 
-			echo "YOUR REGISTRATION IS COMPLETED..."; 
+		if($data) {
+			echo '<script language="javascript">';
+  			echo 'alert(OUR REGISTRATION IS COMPLETED...)';  //not showing an alert box.
+  			echo '</script>'; 
+			//echo "YOUR REGISTRATION IS COMPLETED..."; 
 		}
-		header('Location: login.php');
+		$email = new SendGrid\Email();
+		$email
+		    ->addTo($Email1)
+		    ->setFrom('subscribeinfo@movies.sj')
+		    ->setSubject('Registration Successfull')
+		    ->setText('Welcome.!!')
+		    ->setHtml('<strong>Welcome to the world of ENTERTAINMENT !</strong>')
+		;
+		$sendgrid->send($email);
+		header('Location:'.$LOGIN);
 	}
 	else
 	{
-		header('Location: responsive.php?page=signup');
+		header('Location:'.$SIGNUP);
 
 	}
 	/*

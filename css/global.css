@@ -62,6 +62,11 @@ div#container {
 	float: left;
 }
 
+iframe#adframe {
+	width: 250px;
+	height: auto;
+}
+
 ul#nav {
 
 }
@@ -83,6 +88,7 @@ ul#nav li a {
 }
 
 ul#nav li a:hover {
+	
 	background-color: #f1c40f;
 	color: #fff;
 	padding-left: 30px;
@@ -221,3 +227,62 @@ a.mobile:active {
 	}
 }
 
+#subscribe_box 
+{
+	margin : 20px;
+	vertical-align: center;
+	width: 500px;
+	height: 300px;
+	background-color: grey;
+	padding: 10px;
+	text-align: center;
+}
+#map {
+	height: 500px;
+	width: 500px;
+	margin: 3px;
+}
+
+#hoverimage {
+	float :left;
+	height: 500px;
+	width: 500px;
+	margin: 3px;			
+}
+
+#hoverimage img {
+	float :left;
+	height: 500px;
+	width: 500px;
+}
+		
+#hoversocial {
+	margin-top: 50px;
+	clear: both;
+}
+
+a {
+	color:#898989;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+}
+a:hover {
+	color:#CC0033;
+}
+
+h1 {
+	font: bold 14px Helvetica, Arial, sans-serif;
+	color: #CC0033;
+}
+h2 {
+	font: bold 14px Helvetica, Arial, sans-serif;
+	color: #898989;
+}
+#bulkuploadcontainer {
+	background: #CCC;
+	margin: 100px auto;
+	width: 945px;
+}
+#form 			{padding: 20px 150px;}
+#form input     {margin-bottom: 20px;}

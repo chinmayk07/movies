@@ -1,8 +1,3 @@
-<html>
-<head>
-	<title>Home</title>	
-</head>
-<body>
 	<h1>LATEST RELEASE</h1>
 	<p>The new movies are shown first</p>
 
@@ -37,19 +32,8 @@
 
 			include("testpaging.php");
 			echo "</br>";
-			echo $pagination 				
-			/*$uploadmessage = "return confirm('Data will be updated');";
-			$deletemessage = "return confirm('Are u sure to delete');";
-			$result = mysql_query($sql);			
-			while($row = mysql_fetch_array($result))
-			{
-				$idrow = $row[0]; 
-
-				echo '<div class="show-image"><img height="213" width="207" src="uploads/'.$row[5].'.jpg "/>';
-				echo '<a href="updateform.php?id='.$idrow.'" ><input class="update_button" type="button" value="Update" onclick="'.$uploadmessage.'" /></a>';
-				echo '<a href="delete.php?id='.$idrow.'"><input class="delete_button" type="button" value="Delete" onclick="'.$deletemessage.'"/></a></div>';
-			}
-			mysql_close($conn);  */ 
+			echo $pagination ;				
+			
 			?>
 		</div>				
 	</div>
@@ -71,7 +55,5 @@
 		document.slideshow.src= 'uploads/' + Image[Image_Number] + '.jpg';
 		return false;
 	}	
-	setInterval("change_image(1)",3000);	
+	setInterval("change_image(1)",8000);	
 	</script>
-</body>
-</html>

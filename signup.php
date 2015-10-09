@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
+
 	<?php
 	include("config.php");
 	$sql = "SELECT name FROM country";
 	$result = mysql_query($sql);
 	?>
-</head>
-<body>
 	<form method="POST" action="signupdetails.php">
 		<table style="background-color:white" align="center">
 			<th colspan="2 align="center" ">Enter your Login Details</th>
@@ -90,5 +85,3 @@
 			</tr>
 		</table>
 	</form>
-</body>
-</html>

@@ -5,12 +5,8 @@ if(isset($_SESSION['login_user'])){
 header("location: responsive.php");
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+
+
 	<form style="background-color:white" method="POST" action="loginverification.php">
 		<table style="background-color:white" align="center">
 			<th colspan="2 align="center" ">Enter your Login Details</th>
@@ -32,9 +28,7 @@ header("location: responsive.php");
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" name="login_btn" value="LOGIN">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="responsive.php?page=signup">Register</a></td>
+				<td colspan="2" align="center"><input type="submit" name="login_btn" value="LOGIN">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="<?php echo $SIGNUP; ?>">Register</a></td>
 			</tr>
 		</table>
 	</form>
-</body>
-</html>

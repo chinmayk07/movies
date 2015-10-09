@@ -31,12 +31,12 @@ if(isset($_POST['submit']))
             echo "Error: " . $insert . "<br>" . mysql_error();
         }
         
-        header('Location: responsive.php?page=home');
+        header('Location: '. $HOME);
     }
     else
     {
         die("Wrong Code Entered");
-        header('Location: master.php?page=form');
+        header('Location: '. $LOGIN);
     }
 }
 //
